@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>All Projects | Rafli Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c2c6d2",
+                        "surface-container": "#1e2020",
+                        "secondary-container": "#404b51",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-secondary-container": "#afbac2",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#c9c6c5",
+                        "surface-container-highest": "#333535",
+                        "on-secondary-fixed-variant": "#3e484f",
+                        "on-tertiary-fixed": "#171c24",
+                        "secondary": "#bdc8d0",
+                        "surface-container-low": "#1a1c1c",
+                        "surface-dim": "#121414",
+                        "on-surface": "#e2e2e2",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "primary": "#c9c6c5",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e2e2",
+                        "surface-variant": "#333535",
+                        "inverse-primary": "#5f5e5e",
+                        "on-secondary": "#273238",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface": "#121414",
+                        "background": "#121414",
+                        "surface-container-high": "#282a2b",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#2f3131",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-bright": "#37393a",
+                        "secondary-fixed": "#d9e4ec",
+                        "tertiary-container": "#070c14",
+                        "on-primary": "#313030",
+                        "tertiary": "#c2c6d2",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#757a85",
+                        "secondary-fixed-dim": "#bdc8d0",
+                        "outline": "#8e9192",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-secondary-fixed": "#131d23",
+                        "on-tertiary": "#2c3139",
+                        "tertiary-fixed": "#dee2ee",
+                        "on-tertiary-fixed-variant": "#424750",
+                        "primary-container": "#0c0c0c",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-container": "#7b7a79",
+                        "outline-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "24px",
+                        "container-padding": "40px",
+                        "element-gap": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #121414; color: #e2e2e2; overflow-x: hidden; }
+        .glass-panel { background: rgba(30, 32, 32, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(215, 226, 234, 0.1); }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+        }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998;
+            transform: translate(-50%, -50%); display: flex; align-items: center;
+            justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: transparent;
+            transition: width 0.2s, height 0.2s, border-color 0.2s;
+        }
+        .hovering-project .cursor-dot { width: 0; height: 0; }
+        .hovering-project .cursor-outline {
+            width: 80px; height: 80px; background: white; color: black; border-color: white; mix-blend-mode: exclusion;
+        }
+        .hovering-project .cursor-outline::after { content: 'VIEW'; }
+    </style>
+</head>
+<body class="antialiased selection:bg-secondary selection:text-surface-container-lowest">
+
+<div class="cursor-dot hidden md:block"></div>
+<div class="cursor-outline hidden md:block"></div>
+
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-container-padding py-6 max-w-7xl mx-auto">
+    <a href="index2.html" class="bg-surface/70 dark:bg-surface/70 backdrop-blur-xl rounded-full border border-outline-variant/20 shadow-2xl flex items-center px-6 py-3 gap-2 text-on-surface hover:text-primary transition-all duration-300 font-label-mono text-label-mono uppercase tracking-widest hover:scale-105">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Back to Home
+    </a>
+    <div class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest hidden sm:block">
+        Rafli — Archive
+    </div>
+</nav>
+
+<main class="pt-32 pb-24 px-4 md:px-container-padding max-w-7xl mx-auto">
+    
+    <div class="mb-20 text-center md:text-left">
+        <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest mb-4 block">Complete Repository</span>
+        <h1 class="font-display-hero text-4xl md:text-7xl font-bold tracking-tight text-on-surface mb-6">All Projects.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            A complete collection of web applications, mobile platforms, and system architectures I have designed and built.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/BaliEternalTravel.png" alt="Bali Eternal Travel">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">Bali Eternal Travel</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    A comprehensive information system designed to streamline travel bookings and itineraries with a seamless user experience and robust administrative control.
+                </p>
+            </div>
+            <div>
+                <a href="https://eternaltravel.my.id" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/sdg.png" alt="Sembalun Dalam Genggaman">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">Sembalun Dalam Genggaman</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    An all-in-one travel and booking platform dedicated to Sembalun tourism. Seamlessly reserve attraction tickets, hire local guides, book hotels, and rent cars.
+                </p>
+            </div>
+            <div>
+                <a href="https://rafli280803.github.io/SembalunDalamGenggaman/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/GoRental.png" alt="GoRental">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">GoRental</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    An innovative car rental mobile platform featuring real-time transaction, secure digital transactions, and clean user workflow.
+                </p>
+            </div>
+            <div>
+                <a href="https://github.com/Rafli280803/RentalApp" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    View Details <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/lombokrun.png" alt="GoRental">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">Lombok Run</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    A web platform dedicated to providing information and booking features for running events across Lombok.
+                </p>
+            </div>
+            <div>
+                <a href="https://rafli280803.github.io/LombokRun/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/studio.png" alt="GoRental">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">Arsi Reka</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    A professional website for an architectural studio showcasing creative building designs and project portfolios.
+                </p>
+            </div>
+            <div>
+                <a href="https://rafli280803.github.io/ArsiReka/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/poisson.png" alt="GoRental">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">Poisson House</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    A company profile website designed for a cozy cafe featuring ambiance info, menus, and brand identity.
+                </p>
+            </div>
+            <div>
+                <a href="https://rafli280803.github.io/WebsiteCafe/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between group cursor-pointer" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+            <div>
+                <div class="w-full h-64 rounded-[24px] overflow-hidden relative mb-6">
+                    <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" src="asset/EtnaCoffe.png" alt="GoRental">
+                </div>
+                <h3 class="font-display-hero text-2xl md:text-3xl font-bold text-on-surface mb-3">EtnaCoffe</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    A company profile website built specifically to present the branding, location, and coffee catalog of a modern cafe.
+                </p>
+            </div>
+            <div>
+                <a href="https://rafli280803.github.io/EtnaCoffe/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+                    Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-[32px] flex flex-col justify-between border border-dashed border-outline-variant/40 items-center text-center py-16">
+            <div class="max-w-sm">
+                <span class="material-symbols-outlined text-4xl text-on-surface-variant mb-4">code</span>
+                <h3 class="font-display-hero text-xl font-bold text-on-surface mb-2">More Projects Coming Soon</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    I am constantly building and experimenting with new technologies. Stay tuned for updates!
+                </p>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="bg-surface border-t border-outline-variant/10 text-on-surface py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+        <div class="font-display-hero text-lg font-bold text-on-surface">RAFLI</div>
+        <div class="font-label-mono text-label-mono text-on-surface-variant">© 2026 RAFLI — ALL RIGHTS RESERVED</div>
+    </div>
+</footer>
+
+<script>
+    // Custom Cursor Script
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
+</script>
+
+</body></html>

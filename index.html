@@ -1,0 +1,400 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Rafli | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c2c6d2",
+                        "surface-container": "#1e2020",
+                        "secondary-container": "#404b51",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-secondary-container": "#afbac2",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#c9c6c5",
+                        "surface-container-highest": "#333535",
+                        "on-secondary-fixed-variant": "#3e484f",
+                        "on-tertiary-fixed": "#171c24",
+                        "secondary": "#bdc8d0",
+                        "surface-container-low": "#1a1c1c",
+                        "surface-dim": "#121414",
+                        "on-surface": "#e2e2e2",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "primary": "#c9c6c5",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e2e2",
+                        "surface-variant": "#333535",
+                        "inverse-primary": "#5f5e5e",
+                        "on-secondary": "#273238",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface": "#121414",
+                        "background": "#121414",
+                        "surface-container-high": "#282a2b",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#2f3131",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-bright": "#37393a",
+                        "secondary-fixed": "#d9e4ec",
+                        "tertiary-container": "#070c14",
+                        "on-primary": "#313030",
+                        "tertiary": "#c2c6d2",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#757a85",
+                        "secondary-fixed-dim": "#bdc8d0",
+                        "outline": "#8e9192",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-secondary-fixed": "#131d23",
+                        "on-tertiary": "#2c3139",
+                        "tertiary-fixed": "#dee2ee",
+                        "on-tertiary-fixed-variant": "#424750",
+                        "primary-container": "#0c0c0c",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-container": "#7b7a79",
+                        "outline-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "24px",
+                        "container-padding": "40px",
+                        "element-gap": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-hero-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.05em", "fontWeight": "900" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-hero-mobile": ["56px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #121414; color: #e2e2e2; overflow-x: hidden; }
+        .glass-panel { background: rgba(30, 32, 32, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(215, 226, 234, 0.1); }
+        
+        .hero-title {
+            font-size: clamp(5rem, 16vw, 17rem);
+            line-height: 0.9;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.4) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        .marquee-content.reverse {
+            animation: marquee-reverse 20s linear infinite;
+        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+        .sticky-card {
+            position: sticky;
+            top: 10vh;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, border-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: transparent;
+        }
+        .hovering-project .cursor-dot { width: 0; height: 0; }
+        .hovering-project .cursor-outline {
+            width: 80px; height: 80px; background: white; color: black; border-color: white; mix-blend-mode: exclusion;
+        }
+        .hovering-project .cursor-outline::after { content: 'VIEW'; }
+
+    </style>
+</head>
+<body class="antialiased selection:bg-secondary selection:text-surface-container-lowest">
+<div class="cursor-dot hidden md:block" style="left: 743px; top: 92px;"></div>
+<div class="cursor-outline hidden md:block"></div>
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center items-center px-8 py-3 max-w-max mx-auto hidden md:flex">
+<div class="bg-surface/70 dark:bg-surface/70 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit border border-outline-variant/20 shadow-2xl flex items-center px-6 py-2 gap-8">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-widest hover:scale-105 hover:bg-surface-variant/10 px-3 py-1 rounded-full" href="#about">ABOUT</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-widest hover:scale-105 hover:bg-surface-variant/10 px-3 py-1 rounded-full" href="#skills">SKILLS</a>
+
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-widest hover:scale-105 hover:bg-surface-variant/10 px-3 py-1 rounded-full" href="#projects">PROJECTS</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-mono text-label-mono uppercase tracking-widest hover:scale-105 hover:bg-surface-variant/10 px-3 py-1 rounded-full" href="#contact">CONTACT</a>
+</div>
+</nav>
+<main>
+<section class="h-screen w-full flex flex-col justify-between px-4 md:px-container-padding py-8 md:py-20 relative">
+<div class="mt-20 md:mt-32">
+<h1 class="hero-title font-display-hero font-black tracking-tighter">Hi, I'm Rafli.</h1>
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface-variant mt-4 md:mt-8 max-w-4xl">
+    Full-Stack Developer crafting seamless digital experiences from frontend to backend.
+</p>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end w-full gap-8 md:gap-0 mt-auto">
+<p class="font-label-mono text-label-mono text-on-surface-variant max-w-xs uppercase tracking-widest leading-relaxed">
+                    Based in Indonesia.<br>
+                    Full-Stack Developer focused on building scalable<br>
+                    web applications and digital solutions.
+
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<a class="bg-primary text-primary-container font-label-mono text-label-mono px-8 py-4 rounded-full uppercase tracking-widest hover:scale-105 transition-transform duration-300 text-center flex items-center justify-center gap-2" href="#projects">
+                        View My Projects
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_downward</span>
+</a>
+<a class="border border-outline-variant/50 text-primary font-label-mono text-label-mono px-8 py-4 rounded-full uppercase tracking-widest hover:bg-surface-variant/20 transition-colors duration-300 text-center" href="#contact">
+                        Contact Me
+                    </a>
+</div>
+</div>
+</section>
+<section class="py-12 border-y border-outline-variant/20 bg-surface-container-lowest overflow-hidden">
+<div class="marquee-container mb-4">
+<div class="marquee-content font-display-hero text-headline-lg-mobile md:text-headline-lg text-surface-variant flex gap-8 whitespace-nowrap">
+<span class="">LARAVEL ✦ REACT ✦ PHP ✦ KOTLIN ✦ MYSQL ✦ PAYMENT GATEWAY ✦ </span>
+<span class="">LARAVEL ✦ REACT ✦ PHP ✦ KOTLIN ✦ MYSQL ✦ PAYMENT GATEWAY ✦ </span>
+</div>
+</div>
+<div class="marquee-container">
+<div class="marquee-content reverse font-display-hero text-headline-lg-mobile md:text-headline-lg text-surface-variant flex gap-8 whitespace-nowrap">
+<span class="">FULLSTACK DEV ✦ UI/UX DESIGN ✦ FIGMA ✦ MOBILE APPS ✦ BACKEND ✦ </span>
+<span class="">FULLSTACK DEV ✦ UI/UX DESIGN ✦ FIGMA ✦ MOBILE APPS ✦ BACKEND ✦ </span>
+</div>
+</div>
+</section>
+<section class="py-section-gap px-4 md:px-container-padding max-w-7xl mx-auto" id="about">
+<h2 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold mb-16 text-center text-on-surface">About Me</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 relative aspect-[3/4] w-full max-w-md mx-auto rounded-[40px] overflow-hidden border border-outline-variant/30 p-2">
+<div class="w-full h-full rounded-[32px] overflow-hidden relative glass-panel">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A moody, high-end editorial portrait of a young male developer in a dimly lit studio space, illuminated by cool, subtle blue and silver rim lighting. The aesthetic is cinematic and futuristic minimalism, dominated by deep shadows, sharp focus, and a sophisticated grayscale palette with a hint of metallic sheen. The subject looks confident, blending technical mastery with artistic sensibility." src="asset/image.png">
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        I am an Informatics engineering student and fullstack developer focused on building robust, end-to-end web and mobile applications. I bridge the gap between complex backend logic and clean, responsive interfaces.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        From database design and secure payment integration to deployment, my work is driven by precision, clean architecture, and a constant drive to ship impactful digital products.
+                    </p>
+</div>
+</div>
+</section>
+<section class="bg-surface-fixed text-primary-container py-section-gap px-4 md:px-container-padding rounded-t-[60px] relative z-10" id="skills" style="background-color: #e5e2e1;">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold mb-20 text-on-primary-fixed">What I Do</h2>
+<div class="space-y-8">
+<div class="group border-b border-on-primary-fixed/10 pb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:pl-4 transition-all duration-300">
+<div class="flex items-center gap-8">
+<span class="font-label-mono text-body-lg text-on-primary-fixed/40">01</span>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg text-on-primary-fixed group-hover:text-tertiary-container transition-colors">Full-Stack Web</h3>
+</div>
+<p class="font-body-md text-body-md text-on-primary-fixed-variant max-w-md">Architecting scalable, end-to-end web applications. Mastering both interactive frontends (React, Tailwind) and robust backend systems (Laravel, PHP, MySQL).</p>
+</div>
+<div class="group border-b border-on-primary-fixed/10 pb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:pl-4 transition-all duration-300">
+<div class="flex items-center gap-8">
+<span class="font-label-mono text-body-lg text-on-primary-fixed/40">02</span>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg text-on-primary-fixed group-hover:text-tertiary-container transition-colors">Android Development</h3>
+</div>
+<p class="font-body-md text-body-md text-on-primary-fixed-variant max-w-md">Crafting native mobile experiences with Kotlin, integrating seamless backend services like Firebase for robust system performance.</p>
+</div>
+<div class="group border-b border-on-primary-fixed/10 pb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:pl-4 transition-all duration-300">
+<div class="flex items-center gap-8">
+<span class="font-label-mono text-body-lg text-on-primary-fixed/40">03</span>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg text-on-primary-fixed group-hover:text-tertiary-container transition-colors">UI/UX Design</h3>
+</div>
+<p class="font-body-md text-body-md text-on-primary-fixed-variant max-w-md">Designing intuitive interfaces that balance aesthetic appeal with functional precision, driven by user-centric principles.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-section-gap px-4 md:px-container-padding bg-background relative z-0" id="projects">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold mb-32 text-on-surface sticky top-32 z-10 mix-blend-difference">My Projects</h2>
+<div class="space-y-32 md:space-y-0 pb-32">
+<div class="sticky-card project-card h-screen flex flex-col justify-center bg-background" style="top: 15vh;">
+<div class="glass-panel p-4 md:p-8 rounded-[40px] flex flex-col md:flex-row gap-8 items-center h-full max-h-[70vh]">
+<div class="w-full md:w-1/2 h-64 md:h-full rounded-[24px] overflow-hidden relative cursor-pointer group" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A sleek, modern web dashboard interface for a travel information system, displayed on a high-end monitor in a dark, minimalist workspace." src="asset/BaliEternalTravel.png">
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-between h-full py-8">
+<div>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface mb-4">Bali Eternal Travel</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">A comprehensive information system designed to streamline travel bookings and itineraries with a seamless user experience.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">LARAVEL</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">TAILWIND</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">MYSQL</span>
+</div>
+</div>
+<div>
+    <a href="https://eternaltravel.my.id" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+        Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+    </a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sticky-card project-card h-screen flex flex-col justify-center bg-background" style="top: 20vh;">
+<div class="glass-panel p-4 md:p-8 rounded-[40px] flex flex-col md:flex-row gap-8 items-center h-full max-h-[70vh] border-t border-outline-variant/30">
+<div class="w-full md:w-1/2 h-64 md:h-full rounded-[24px] overflow-hidden relative cursor-pointer group" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A comprehensive travel booking website interface displayed on a laptop monitor, featuring breathtaking views of Sembalun." src="asset/sdg.png">
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-between h-full py-8">
+<div>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface mb-4">Sembalun Dalam Genggaman</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">An all-in-one travel and booking platform dedicated exclusively to Sembalun tourism. Seamlessly reserve attraction tickets, hire local guides, book hotels, and rent cars.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">LARAVEL</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">REACT</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">PAYMENT GATEWAY</span>
+</div>
+</div>
+<div>
+    <a href="https://rafli280803.github.io/SembalunDalamGenggaman/" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+        Visit Website <span class="material-symbols-outlined text-sm">arrow_outward</span>
+    </a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="sticky-card project-card h-screen flex flex-col justify-center bg-background" style="top: 25vh;">
+<div class="glass-panel p-4 md:p-8 rounded-[40px] flex flex-col md:flex-row gap-8 items-center h-full max-h-[70vh] border-t border-outline-variant/30">
+<div class="w-full md:w-1/2 h-64 md:h-full rounded-[24px] overflow-hidden relative cursor-pointer group" onmouseenter="document.body.classList.add('hovering-project')" onmouseleave="document.body.classList.remove('hovering-project')">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A modern mobile application interface displayed on a dark-themed mockup showcase, highlighting clean mobile UI and smooth user flow." src="asset/GoRental.png">
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-between h-full py-8">
+<div>
+<h3 class="font-display-hero text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface mb-4">GoRental</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">An innovative car rental platform featuring real-time transaction, secure digital transactions, and intuitive user workflow.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">KOTLIN</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">FIREBASE</span>
+<span class="px-4 py-2 rounded-full bg-outline-variant/20 font-label-mono text-label-mono text-on-surface">UI/UX</span>
+</div>
+</div>
+<div>
+    <a href="https://github.com/Rafli280803/RentalApp" class="inline-flex items-center gap-2 text-primary hover:text-white transition-colors duration-300 font-label-mono uppercase tracking-widest text-sm border-b border-primary/30 pb-1 hover:border-white">
+        View Details <span class="material-symbols-outlined text-sm">arrow_outward</span>
+    </a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="mt-12 flex justify-center w-full relative z-20 pb-20">
+    <a href="project.html" class="border border-outline-variant/50 text-primary font-label-mono text-label-mono px-8 py-4 rounded-full uppercase tracking-widest hover:bg-surface-variant/20 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center gap-2">
+        See All Projects
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+    </a>
+</div>
+
+</div>
+</section>
+<section class="bg-surface-fixed text-primary-container py-section-gap px-4 md:px-container-padding rounded-t-[60px] relative z-20 min-h-screen flex flex-col justify-center" id="contact" style="background-color: #e5e2e1;">
+<div class="max-w-7xl mx-auto w-full text-center">
+<h2 class="font-display-hero text-[10vw] leading-none font-black tracking-tighter text-on-primary-fixed mb-12 hover:scale-105 transition-transform duration-700">Let's build<br>something together.</h2>
+<a class="inline-block bg-primary-container text-primary font-label-mono text-label-mono px-12 py-6 rounded-full uppercase tracking-widest hover:scale-110 hover:bg-surface-container-lowest transition-all duration-500 shadow-2xl relative group overflow-hidden" href="https://wa.me/6281775079487" target="_blank" rel="noopener noreferrer">
+<span class="relative z-10 flex items-center gap-2">Get In Touch <span class="material-symbols-outlined text-sm">arrow_outward</span></span>
+<div class="absolute inset-0 bg-surface-variant/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full z-0"></div>
+</a>
+</div>
+</section>
+</main>
+<footer class="bg-surface dark:bg-surface border-t border-outline-variant/10 text-on-surface dark:text-on-surface relative z-30 pt-40">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-grid-gutter py-12 max-w-7xl mx-auto">
+<div class="font-display-hero text-headline-lg-mobile font-bold text-on-surface mb-8 md:mb-0">
+                RAFLI
+            </div>
+<div class="font-label-mono text-label-mono text-on-surface-variant mb-8 md:mb-0">
+                © 2026 RAFLI — CRAFTED WITH PRECISION
+            </div>
+<div class="flex gap-6 font-label-mono text-label-mono text-on-surface-variant">
+<a class="hover:text-primary transition-colors duration-500" href="#">LINKEDIN</a>
+<a class="hover:text-primary transition-colors duration-500" href="#">GITHUB</a>
+<a class="hover:text-primary transition-colors duration-500" href="#">TWITTER</a>
+<a class="hover:text-primary transition-colors duration-500" href="#">INSTAGRAM</a>
+</div>
+</div>
+</footer>
+<script>
+        // Custom Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            // Subtle lag for outline
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+    </script>
+
+
+</body></html>
